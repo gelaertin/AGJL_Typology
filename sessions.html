@@ -8,6 +8,7 @@
 
     <link href="style.css" rel="stylesheet" type="text/css"/>
     <script src="/main.js" defer></script>
+    Allow:<http-methods>GET, POST, HEAD</http-methods>
 </head>
 
 <body>
@@ -34,18 +35,14 @@
 </main>
     <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima aperiam maiores ducimus at aliquid aliquam possimus, doloremque rerum ipsum deleniti sunt libero distinctio! Amet vitae accusantium tenetur saepe, molestiae rerum!</h1>
 
-    <form id="myForm" class="form">
-
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="user_name">
-
-                <label for="mail">E-Mail: </label>
-                <input type="email" id="mail" name="user_email">
-
-                <label for="msg">Send your message:</label>
-                <input type= "text" value="Enter the best way of contact for your typing session">
-
-                <button type="submit">Submit</button>
+    <form action="https://formsubmit.co/agjltypology@email.com" method="POST">
+        <input type="hidden" name="_subject" value="Typology Question/Request">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="message" placeholder="Your Message" required>
+        <input type="hidden" name="_next" value="http://127.0.0.1:5500/thanks.html">
+        <button type="submit">Send</button>
+   </form>
 
     </form>
 </body>

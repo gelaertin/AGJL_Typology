@@ -1,15 +1,20 @@
 // Form 
 const myForm = document.getElementById("myForm");
 
-myForm.addEventListener("submit", (e) => {
+myForm.addEventListener("submit", function (e){
     e.preventDefault();
     console.log("Form has been submitted.")
 
-    const request = new XMLHttpRequest();
-    request.open("post", "data.php");
+    const formData = new FormData(this);
 
-    request.onload = function () {
-        console.log(request.responseText);
-    }
-    request.send(new FormData(myForm));
+    fetch("data.php",{
+        method: "post",
+        body: formData,
+    }).then(function (response){
+        return response.text;
+    }).then(function (text){
+        console.log(text);
+    }).catch(function(errow){
+        console.error(error);
+    })
 });
